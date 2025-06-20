@@ -1,10 +1,10 @@
 # EcoTienda
 
-_EcoTienda es un ecommerce de productos de limpieza ecologicos, pensado para hogares y empresas que buscan cuidar el medio ambiente.
+EcoTienda es un ecommerce de productos de limpieza ecologicos, pensado para hogares y empresas que buscan cuidar el medio ambiente.
 
 ---
 
-##  Caracteristicas principales:
+## Caracteristicas principales:
 
 - **Catalogo de productos**: Visualiza, busca y filtra productos por nombre o categoría.
 - **Carrito de compras**: Agrega, elimina y modifica cantidades de productos.
@@ -20,7 +20,7 @@ _EcoTienda es un ecommerce de productos de limpieza ecologicos, pensado para hog
 
 ---
 
-##  Tecnologías utilizadas:
+## Tecnologías utilizadas:
 
 - **React 19**
 - **React Router DOM 7**
@@ -34,7 +34,7 @@ _EcoTienda es un ecommerce de productos de limpieza ecologicos, pensado para hog
 
 ---
 
-##  Estructura del proyecto:
+## Estructura del proyecto:
 
 ```
 src/
@@ -53,7 +53,7 @@ public/
 
 ---
 
-##  Instalacion y ejecucion:
+## Instalacion y ejecucion:
 
 1. **Instala las dependencias**
 
@@ -72,14 +72,14 @@ public/
 4. **Inicia la app**
 
    npm run dev
-  
+
 5. **Accede como administrador**
    - El email de administrador está configurado en el codigo (por defecto: `admin@gmail.com`).
    - El password de administrador está configurado en el codigo (por defecto: `123456`).
 
 ---
 
-##  Funcionalidades para el usuario
+## Funcionalidades para el usuario
 
 - Buscar productos por nombre o categoria.
 - Filtrar por categorias.
@@ -89,7 +89,7 @@ public/
 
 ---
 
-##  Funcionalidades para el administrador
+## Funcionalidades para el administrador
 
 - Agregar nuevos productos.
 - Editar productos existentes.
@@ -99,7 +99,7 @@ public/
 
 ---
 
-##  Contacto
+## Contacto
 
 ¿Dudas, sugerencias o pedidos especiales?  
 Completa el formulario de contacto en la app o escribe a:  
@@ -107,7 +107,7 @@ Completa el formulario de contacto en la app o escribe a:
 
 ---
 
-##  Licencia
+## Licencia
 
 Este proyecto es solo para fines educativos y personales.
 
@@ -120,4 +120,11 @@ Este proyecto es solo para fines educativos y personales.
 
 ---
 
-¡Gracias por ver mi proyecto! 
+##  Despliegue en Vercel
+
+Puedes ver la aplicacion funcionando en Vercel aqui:  
+[https://ecostore-delta.vercel.app/](https://ecostore-delta.vercel.app/)
+
+---
+
+¡Gracias por ver mi proyecto!
