@@ -1,0 +1,124 @@
+/* Contenedor principal del formulario */
+.form-center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+/* Tarjeta del formulario */
+.form-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 2rem 2.5rem; /* Más padding horizontal */
+  width: 100%;
+  max-width: 600px; /* Más ancho */
+  min-height: 320px; /* Menos alto */
+  margin: 2rem auto;
+  animation: fadeIn 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Título */
+.form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Formulario */
+.form-styled {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* Grupo de campo */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Label */
+.form-label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* Input */
+.form-input {
+  border: 1px solid #d1d5db;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  outline: none;
+  width: 250px;
+  text-align: center;
+  font-size: 1rem;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus {
+  border: 1.5px solid #3498db;
+  box-shadow: 0 0 0 2px #dbeafe;
+}
+
+/* Botón */
+.form-btn {
+  width: 250px;
+  padding: 0.8rem 0;
+  border-radius: 0.5rem;
+  border: none;
+  background: linear-gradient(to right, #3498db, #2980b9);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.15);
+}
+
+.form-btn:hover {
+  background: linear-gradient(to right, #2980b9, #3498db);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Enlace alternativo */
+.form-alt-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(to right, #3498db, #2980b9);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.15);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.form-alt-link:hover {
+  background: linear-gradient(to right, #2980b9, #3498db);
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
