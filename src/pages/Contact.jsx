@@ -3,6 +3,7 @@ import "../styles/global.css";
 import "../styles/FormStyles.css";
 import emailjs from "emailjs-com";
 import { BsEnvelopeAt } from "react-icons/bs";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -44,6 +45,23 @@ const Contact = () => {
 
   return (
     <div style={{ position: "relative" }}>
+      <Helmet>
+        <title>EcoTienda | Productos ecológicos</title>
+        <meta
+          name="description"
+          content="EcoTienda: Venta de productos de limpieza ecológicos para el hogar y la empresa."
+        />
+        <meta
+          name="keywords"
+          content="ecotienda, limpieza ecológica, productos ecológicos, tienda online, hogar, empresa"
+        />
+        <meta property="og:title" content="EcoTienda | Productos ecológicos" />
+        <meta
+          property="og:description"
+          content="Venta de productos de limpieza ecológicos para el hogar y la empresa."
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <div className="nature-background" />
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
         <div className="form-center-container">

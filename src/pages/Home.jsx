@@ -1,6 +1,7 @@
 import { useProducts } from "../context/ProductContext";
 import ProductCarousel from "../components/ProductCarousel";
 import "../styles/global.css";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const { products, loading, error } = useProducts();
@@ -9,6 +10,23 @@ const Home = () => {
 
   return (
     <div style={{ position: "relative" }}>
+      <Helmet>
+        <title>EcoTienda | Productos ecológicos</title>
+        <meta
+          name="description"
+          content="EcoTienda: Venta de productos de limpieza ecológicos para el hogar y la empresa."
+        />
+        <meta
+          name="keywords"
+          content="ecotienda, limpieza ecológica, productos ecológicos, tienda online, hogar, empresa"
+        />
+        <meta property="og:title" content="EcoTienda | Productos ecológicos" />
+        <meta
+          property="og:description"
+          content="Venta de productos de limpieza ecológicos para el hogar y la empresa."
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <div className="nature-background" />
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
         <h1 className="text-center text-3xl font-bold my-8">

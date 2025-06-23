@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getData } from "../api/api.jsx";
 import { useCart } from "../context/CartContext";
 import { useSweetAlert } from "../context/SweetAlertContext";
+import { Helmet } from "react-helmet-async";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -55,6 +56,23 @@ const ProductDetail = () => {
 
   return (
     <div className="product-detail-container">
+      <Helmet>
+        <title>EcoTienda | Productos ecológicos</title>
+        <meta
+          name="description"
+          content="EcoTienda: Venta de productos de limpieza ecológicos para el hogar y la empresa."
+        />
+        <meta
+          name="keywords"
+          content="ecotienda, limpieza ecológica, productos ecológicos, tienda online, hogar, empresa"
+        />
+        <meta property="og:title" content="EcoTienda | Productos ecológicos" />
+        <meta
+          property="og:description"
+          content="Venta de productos de limpieza ecológicos para el hogar y la empresa."
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <h2 className="product-detail-title">Detalles del Producto</h2>
       <div className="product-detail-grid">
         <div>
