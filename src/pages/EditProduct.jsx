@@ -63,7 +63,7 @@ const EditProduct = () => {
         }
       );
       setSuccessMsg("¡Producto actualizado correctamente!");
-      fetchProducts(); // Refresca el listado global
+      fetchProducts();
       setTimeout(() => navigate("/"), 1500);
     } catch (error) {
       setErrorMsg("Ocurrió un error al actualizar el producto.");

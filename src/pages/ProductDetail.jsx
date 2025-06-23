@@ -16,7 +16,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const data = await getData(id); 
+        const data = await getData(id);
         setProduct(data);
         setLoading(false);
       } catch (err) {
@@ -36,10 +36,12 @@ const ProductDetail = () => {
   };
 
   const handleAddToCart = () => {
-    addToCart({ ...product, quantity });
+    addToCart(product, quantity);
     showAlert({
       title: "Producto agregado",
-      text: `Agregaste "${product.title}" por un valor de $${Number(product.price).toFixed(2)} al carrito.`,
+      text: `Agregaste "${product.title}" por un valor de $${Number(
+        product.price
+      ).toFixed(2)} al carrito.`,
       icon: "success",
       confirmButtonText: "Aceptar",
     });

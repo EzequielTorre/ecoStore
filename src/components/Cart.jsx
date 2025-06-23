@@ -1,7 +1,7 @@
 import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
 import { BiSolidTrash } from "react-icons/bi";
-import { FaShoppingCart, FaCreditCard } from "react-icons/fa";
+import { FaShoppingCart, FaCreditCard} from "react-icons/fa";
 import { useSweetAlert } from "../context/SweetAlertContext";
 import "../styles/global.css";
 
@@ -35,7 +35,7 @@ const Cart = () => {
       <div
         style={{
           position: "relative",
-          minHeight: "calc(100vh - 120px)", 
+          minHeight: "calc(100vh - 120px)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -43,7 +43,10 @@ const Cart = () => {
       >
         <div className="nature-background" />
         <div className="cart-empty" style={{ position: "relative", zIndex: 1 }}>
-          <h2>Tu carrito está vacío</h2>
+          <h2>
+            Tu carrito está vacío{" "}
+            <FaShoppingCart style={{ color: "#888", marginLeft: 8 }} />
+          </h2>
           <br />
           <Link to="/" className="btn btn-primary">
             Ir a comprar
@@ -119,7 +122,6 @@ const Cart = () => {
 
         <div className="cart-actions">
           <Link to="/" className="btn btn-secondary">
-            <FaShoppingCart style={{ marginRight: 6 }} />
             Seguir comprando
           </Link>
           <button className="btn btn-primary" onClick={handleCheckout}>

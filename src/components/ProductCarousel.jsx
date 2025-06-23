@@ -49,8 +49,8 @@ const ProductCarousel = ({ products, onDelete }) => {
             cursor: products.length > 1 ? "pointer" : "not-allowed",
             color: "#fff",
             borderRadius: "50%",
-            width: 40,
-            height: 40,
+            width: 50,
+            height: 50,
             opacity: products.length > 1 ? 1 : 0.5,
             transition: "background 0.2s",
           }}
@@ -78,8 +78,8 @@ const ProductCarousel = ({ products, onDelete }) => {
             cursor: products.length > 1 ? "pointer" : "not-allowed",
             color: "#fff",
             borderRadius: "50%",
-            width: 40,
-            height: 40,
+            width: 50,
+            height: 50,
             opacity: products.length > 1 ? 1 : 0.5,
             transition: "background 0.2s",
           }}

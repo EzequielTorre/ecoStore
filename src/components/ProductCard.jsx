@@ -5,8 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import { useState } from "react";
 import { useProducts } from "../context/ProductContext";
 import { RiAdminFill } from "react-icons/ri";
-import { FaTrash } from "react-icons/fa";
-
+import { FaTrash, FaShoppingCart } from "react-icons/fa";
 
 // Mi componente ProductCard muestra la información de un producto, permite agregarlo al carrito y, si el usuario es administrador, editar o eliminar el producto.
 const ProductCard = ({ product, onDelete }) => {
@@ -82,31 +81,47 @@ const ProductCard = ({ product, onDelete }) => {
           <Link to={`/product/${product.id}`} className="btn btn-primary">
             Ver detalles
           </Link>
-          <button onClick={handleAddToCart} className="btn btn-secondary">
-            Agregar
+          <button
+            onClick={handleAddToCart}
+            className="btn"
+            style={{
+              backgroundColor: "#27ae60",
+              color: "#fff",
+              padding: "8px 12px",
+            }}
+            title="Agregar al carrito"
+          >
+            <FaShoppingCart />
           </button>
         </div>
       </div>
       {isAdmin && (
-        <>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 8,
+            marginTop: 8,
+          }}
+        >
           <Link
             to={`/edit-product/${product.id}`}
             className="btn btn-primary"
-            style={{ flex:1, marginTop: 8 }}
+            style={{ width: "100%" }}
           >
             <RiAdminFill style={{ marginRight: 6, color: "red" }} />
-            Editar
+            Editar producto
           </Link>
           <button
             className="btn btn-secondary"
             onClick={handleDelete}
             disabled={deleting}
-            style={{ marginTop: 8 }}
+            style={{ width: "100%" }}
           >
             <FaTrash style={{ marginRight: 6 }} />
             {deleting ? "Eliminando..." : "Eliminar producto"}
           </button>
-        </>
+        </div>
       )}
     </div>
   );
