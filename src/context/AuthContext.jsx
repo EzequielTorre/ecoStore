@@ -4,8 +4,9 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  signInWithPopup,
 } from "firebase/auth";
-import { auth } from "../auth/firebase";
+import { auth, provider } from "../auth/firebase";
 
 // El componente AuthContext proporciona el estado de autenticación y funciones para manejar el registro, inicio y cierre de sesión de usuarios.
 const AuthContext = createContext();
@@ -40,8 +41,15 @@ export function AuthProvider({ children }) {
   // Cerrar sesión
   const logout = () => signOut(auth).then(() => setUser(null));
 
+  // Iniciar sesión con Google
+  const loginWithGoogle = async () => {
+    return signInWithPopup(auth, provider);
+  };
+
   return (
-    <AuthContext.Provider value={{ user, register, login, logout }}>
+    <AuthContext.Provider
+      value={{ user, register, login, logout, loginWithGoogle }}
+    >
       {children}
     </AuthContext.Provider>
   );

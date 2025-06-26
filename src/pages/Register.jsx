@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { useSweetAlert } from "../context/SweetAlertContext";
+import { FcGoogle } from "react-icons/fc";
 import "../styles/FormStyles.css";
 
 const Register = () => {
-  const { register } = useAuth();
+  const { register, loginWithGoogle } = useAuth();
   const { showAlert } = useSweetAlert();
   const navigate = useNavigate();
 
@@ -63,6 +64,41 @@ const Register = () => {
           </div>
           <button type="submit" className="form-btn">
             Registrarse
+          </button>
+          <button
+            type="button"
+            className="form-btn"
+            style={{
+              background: "#fff",
+              color: "#444",
+              border: "1px solid #d1d5db",
+              marginTop: "1rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5rem",
+            }}
+            onClick={async () => {
+              try {
+                await loginWithGoogle();
+                showAlert({
+                  title: "¡Bienvenido!",
+                  text: "Has iniciado sesión con Google.",
+                  icon: "success",
+                  confirmButtonText: "Continuar",
+                }).then(() => navigate("/"));
+              } catch (error) {
+                showAlert({
+                  title: "Error",
+                  text: "No se pudo iniciar sesión con Google.",
+                  icon: "error",
+                  confirmButtonText: "Aceptar",
+                });
+              }
+            }}
+          >
+            <FcGoogle style={{ fontSize: "1.5rem" }} />
+            Loguéate con tu Gmail
           </button>
         </form>
         <div className="text-center">

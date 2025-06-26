@@ -918,7 +918,7 @@ h1,
   animation: fadeIn 0.3s ease-in;
 }
 
-/* Fondo de naturaleza reutilizable */
+
 .nature-background {
   position: fixed;
   top: 0;
@@ -930,8 +930,8 @@ h1,
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.5; /* Ajusta la opacidad para que no tape el contenido */
-  pointer-events: none; /* Permite interactuar con el contenido encima */
+  opacity: 0.5; 
+  pointer-events: none; 
 }
 
 /* Carrusel tipo coverflow */
@@ -940,9 +940,9 @@ h1,
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin: 2rem 0 4rem 0; /* Aumenta el margen inferior para separar del footer */
+  margin: 2rem 0 4rem 0; 
   position: relative;
-  min-height: 560px; /* Aumenta el alto mínimo */
+  min-height: 560px; 
 }
 
 .carousel-cards {
@@ -951,7 +951,7 @@ h1,
   justify-content: center;
   position: relative;
   width: 420px;
-  min-height: 540px; /* Aumenta el alto mínimo */
+  min-height: 540px; 
   height: auto;
 }
 
