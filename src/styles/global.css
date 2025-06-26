@@ -5,11 +5,28 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
 body {
   font-family: "Quicksand", "Lora", Arial, sans-serif;
   background-color: #f5f5f5;
   color: #333;
   line-height: 1.6;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Para títulos principales */
@@ -193,6 +210,8 @@ h1,
   display: flex;
   flex-direction: column;
   position: relative;
+  min-height: 520px; /* Ajusta según el contenido más grande */
+  justify-content: flex-start;
 }
 
 .product-card:hover {
@@ -230,6 +249,7 @@ h1,
   flex-direction: column;
   gap: 0.8rem;
   flex-grow: 1;
+  justify-content: flex-start;
 }
 
 .product-title {
@@ -265,23 +285,40 @@ h1,
   gap: 1rem;
   margin-top: auto;
   padding-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 56px; /* asegura espacio para los botones */
 }
 
 .product-actions .btn {
   flex: 1;
+  min-width: 0;
+  font-size: 1rem;
+  padding: 0.7rem 0.5rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.product-badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: #e74c3c;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  z-index: 1;
+/* Botones de admin debajo */
+.product-admin-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+  width: 100%;
+  align-items: stretch;
+}
+
+.product-admin-actions .btn {
+  width: 100%;
+  font-size: 0.98rem;
+  padding: 0.7rem 0.5rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Animación de carga para las imágenes */
@@ -851,6 +888,20 @@ h1,
   }
 }
 
+@media (max-width: 600px) {
+  .carousel-cards {
+    width: 95vw;
+    min-height: 400px;
+  }
+  .carousel-container {
+    min-height: 420px;
+    margin-bottom: 2rem;
+  }
+  .product-card {
+    min-height: 380px;
+  }
+}
+
 /* Animaciones */
 @keyframes fadeIn {
   from {
@@ -881,4 +932,77 @@ h1,
   background-repeat: no-repeat;
   opacity: 0.5; /* Ajusta la opacidad para que no tape el contenido */
   pointer-events: none; /* Permite interactuar con el contenido encima */
+}
+
+/* Carrusel tipo coverflow */
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0 4rem 0; /* Aumenta el margen inferior para separar del footer */
+  position: relative;
+  min-height: 560px; /* Aumenta el alto mínimo */
+}
+
+.carousel-cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 420px;
+  min-height: 540px; /* Aumenta el alto mínimo */
+  height: auto;
+}
+
+.carousel-card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(0.7);
+  opacity: 0.5;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(.4,2,.6,1);
+  filter: blur(2px);
+}
+
+.carousel-card.active {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+  filter: none;
+  z-index: 10;
+}
+
+.carousel-card.side {
+  transform: translateX(-50%) scale(0.85) rotateY(15deg);
+  opacity: 0.7;
+  pointer-events: none;
+  filter: blur(1px);
+  z-index: 5;
+}
+
+.carousel-card.hidden {
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(4px);
+}
+
+.carousel-arrow {
+  background: #3498db;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-arrow:hover {
+  background: #2980b9;
 }

@@ -8,7 +8,7 @@ import { RiAdminFill } from "react-icons/ri";
 import { FaTrash, FaShoppingCart } from "react-icons/fa";
 
 // Mi componente ProductCard muestra la información de un producto, permite agregarlo al carrito y, si el usuario es administrador, editar o eliminar el producto.
-const ProductCard = ({ product, onDelete }) => {
+const ProductCard = ({ product, onDelete, disableActions }) => {
   const { addToCart } = useCart();
   const { showAlert } = useSweetAlert();
   const { user } = useAuth();
@@ -78,7 +78,12 @@ const ProductCard = ({ product, onDelete }) => {
         <p className="product-price">${Number(product.price).toFixed(2)}</p>
         <p className="product-description">{product.description}</p>
         <div className="product-actions">
-          <Link to={`/product/${product.id}`} className="btn btn-primary">
+          <Link
+            to={`/product/${product.id}`}
+            className="btn btn-primary"
+            tabIndex={disableActions ? -1 : 0}
+            aria-disabled={disableActions}
+          >
             Ver detalles
           </Link>
           <button
@@ -87,42 +92,34 @@ const ProductCard = ({ product, onDelete }) => {
             style={{
               backgroundColor: "#27ae60",
               color: "#fff",
-              padding: "8px 12px",
             }}
             title="Agregar al carrito"
+            disabled={disableActions}
+            tabIndex={disableActions ? -1 : 0}
           >
             <FaShoppingCart />
           </button>
         </div>
+        {isAdmin && (
+          <div className="product-admin-actions">
+            <Link
+              to={`/edit-product/${product.id}`}
+              className="btn btn-primary"
+            >
+              <RiAdminFill style={{ marginRight: 6, color: "red" }} />
+              Editar producto
+            </Link>
+            <button
+              className="btn btn-secondary"
+              onClick={handleDelete}
+              disabled={deleting}
+            >
+              <FaTrash style={{ marginRight: 6 }} />
+              {deleting ? "Eliminando..." : "Eliminar producto"}
+            </button>
+          </div>
+        )}
       </div>
-      {isAdmin && (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 8,
-            marginTop: 8,
-          }}
-        >
-          <Link
-            to={`/edit-product/${product.id}`}
-            className="btn btn-primary"
-            style={{ width: "100%" }}
-          >
-            <RiAdminFill style={{ marginRight: 6, color: "red" }} />
-            Editar producto
-          </Link>
-          <button
-            className="btn btn-secondary"
-            onClick={handleDelete}
-            disabled={deleting}
-            style={{ width: "100%" }}
-          >
-            <FaTrash style={{ marginRight: 6 }} />
-            {deleting ? "Eliminando..." : "Eliminar producto"}
-          </button>
-        </div>
-      )}
     </div>
   );
 };

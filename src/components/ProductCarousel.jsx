@@ -9,109 +9,36 @@ const ProductCarousel = ({ products, onDelete }) => {
   if (!products || products.length === 0)
     return <p className="text-center mt-8 text-gray-500">No hay productos.</p>;
 
-  const goLeft = () => {
-    setCurrent((prev) => (prev === 0 ? products.length - 1 : prev - 1));
-  };
-
-  const goRight = () => {
-    setCurrent((prev) => (prev === products.length - 1 ? 0 : prev + 1));
-  };
+  const goLeft = () => setCurrent((prev) => (prev === 0 ? products.length - 1 : prev - 1));
+  const goRight = () => setCurrent((prev) => (prev === products.length - 1 ? 0 : prev + 1));
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "1rem",
-        width: "100%",
-        maxWidth: 450,
-        margin: "0 auto",
-      }}
-      role="region"
-      aria-label="Carrusel de productos destacados"
-    >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-          gap: "1rem",
-        }}
-      >
-        <button
-          onClick={goLeft}
-          style={{
-            background: "#3498db",
-            border: "none",
-            fontSize: "2rem",
-            cursor: products.length > 1 ? "pointer" : "not-allowed",
-            color: "#fff",
-            borderRadius: "50%",
-            width: 50,
-            height: 50,
-            opacity: products.length > 1 ? 1 : 0.5,
-            transition: "background 0.2s",
-          }}
-          aria-label="Producto anterior"
-          disabled={products.length <= 1}
-        >
-          <FaChevronLeft />
-        </button>
-        <div
-          style={{
-            minWidth: 320,
-            maxWidth: 400,
-            transition: "all 0.3s",
-          }}
-          aria-live="polite"
-        >
-          <ProductCard product={products[current]} onDelete={onDelete} />
-        </div>
-        <button
-          onClick={goRight}
-          style={{
-            background: "#3498db",
-            border: "none",
-            fontSize: "2rem",
-            cursor: products.length > 1 ? "pointer" : "not-allowed",
-            color: "#fff",
-            borderRadius: "50%",
-            width: 50,
-            height: 50,
-            opacity: products.length > 1 ? 1 : 0.5,
-            transition: "background 0.2s",
-          }}
-          aria-label="Producto siguiente"
-          disabled={products.length <= 1}
-        >
-          <FaChevronRight />
-        </button>
+    <div className="carousel-container">
+      <button className="carousel-arrow" onClick={goLeft} aria-label="Anterior">
+        <FaChevronLeft />
+      </button>
+      <div className="carousel-cards">
+        {products.map((product, idx) => {
+          // Calcula la posición relativa a la tarjeta central
+          const offset = idx - current;
+          let className = "carousel-card";
+          if (offset === 0) className += " active";
+          else if (Math.abs(offset) === 1) className += " side";
+          else className += " hidden";
+          return (
+            <div key={product.id} className={className} style={{ zIndex: 10 - Math.abs(offset) }}>
+              <ProductCard
+                product={product}
+                onDelete={onDelete}
+                disableActions={offset !== 0} // Solo la central es interactiva
+              />
+            </div>
+          );
+        })}
       </div>
-      {/* Indicadores de posición */}
-      <div style={{ display: "flex", gap: 6, marginTop: 8 }}>
-        {products.map((_, idx) => (
-          <span
-            key={idx}
-            style={{
-              width: 10,
-              height: 10,
-              borderRadius: "50%",
-              background: idx === current ? "#3498db" : "#d0d7de",
-              display: "inline-block",
-              transition: "background 0.2s",
-            }}
-            aria-label={idx === current ? "Producto actual" : `Ir al producto ${idx + 1}`}
-            role="button"
-            tabIndex={0}
-            onClick={() => setCurrent(idx)}
-            onKeyDown={e => {
-              if (e.key === "Enter" || e.key === " ") setCurrent(idx);
-            }}
-          />
-        ))}
-      </div>
+      <button className="carousel-arrow" onClick={goRight} aria-label="Siguiente">
+        <FaChevronRight />
+      </button>
     </div>
   );
 };
