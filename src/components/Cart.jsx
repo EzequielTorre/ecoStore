@@ -65,7 +65,7 @@ const Cart = () => {
         className="cart-container"
         style={{ position: "relative", zIndex: 1 }}
       >
-        <h2 className="cart-title">Tu Carrito</h2>
+        <h2 style={{ fontSize: "2.5rem", fontWeight: 700, color: "#2980b9" }}  className="cart-title">Tu Carrito</h2>
 
         <div className="cart-items">
           {cart.map((item) => (

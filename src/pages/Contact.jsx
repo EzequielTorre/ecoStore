@@ -72,9 +72,10 @@ const Contact = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                color: "#2980b9"
               }}
             >
-              <BsEnvelopeAt style={{ fontSize: "2rem", marginRight: "10px" }} />
+              <BsEnvelopeAt style={{ fontSize: "2rem", marginRight: "10px", fontWeight: 700, color: "#2980b9" }} />
               Contacto
             </h2>
             <h4 style={{ marginTop: 8, color: "#2c3e50", textAlign: "center" }}>

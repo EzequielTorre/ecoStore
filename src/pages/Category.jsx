@@ -77,7 +77,7 @@ const Category = () => {
       </Helmet>
       <div className="nature-background" />
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
-        <h1 className="text-center text-3xl font-bold my-8">
+        <h1 style={{ fontSize: "2.5rem", fontWeight: 700, color: "#2980b9" }} className="text-center text-3xl font-bold my-8">
           Nuestros Productos
         </h1>
 
