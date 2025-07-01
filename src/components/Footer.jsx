@@ -9,16 +9,16 @@ const Footer = () => (
     marginTop: '2rem'
   }}>
     <div style={{ marginBottom: '1rem' }}>
-      <a href="https://github.com/" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', margin: '0 1rem', fontSize: '1.5rem' }}>
+      <a href="https://github.com/EzequielTorre" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', margin: '0 1rem', fontSize: '1.5rem' }}>
         <FaGithub />
       </a>
-      <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', margin: '0 1rem', fontSize: '1.5rem' }}>
+      <a href="https://www.instagram.com/ezequielmauriciotorres/" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', margin: '0 1rem', fontSize: '1.5rem' }}>
         <FaInstagram />
       </a>
       <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', margin: '0 1rem', fontSize: '1.5rem' }}>
         <FaFacebook />
       </a>
-      <a href="mailto:contacto@ecommerce.com" style={{ color: '#fff', margin: '0 1rem', fontSize: '1.5rem' }}>
+      <a href="/contact" style={{ color: '#fff', margin: '0 1rem', fontSize: '1.5rem' }}>
         <FaEnvelope />
       </a>
       <a
