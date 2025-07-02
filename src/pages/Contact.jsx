@@ -27,10 +27,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_e4w6yq6", // Tu service_id
-        "template_uioty1b", // Tu template_id
-        e.target, // El form
-        "5RXaPt-wwPqC7u8Nw" // Tu public_key
+        "service_e4w6yq6", // mi service_id
+        "template_uioty1b", // mi template_id
+        e.target, // El formulario
+        "5RXaPt-wwPqC7u8Nw" // mi public_key
       )
       .then(() => {
         alert("¡Mensaje enviado con éxito! Pronto nos pondremos en contacto.");

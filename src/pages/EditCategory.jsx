@@ -12,7 +12,7 @@ const EditCategory = () => {
 
   const categories = [...new Set(products.map((p) => p.category))];
 
-  // Editar categoría existente
+  // Editar categoría existente:
   const handleEdit = async (e) => {
     e.preventDefault();
     setSuccessMsg("");
@@ -38,7 +38,7 @@ const EditCategory = () => {
     }
   };
 
-  // Crear nueva categoría (agregar un producto dummy con la nueva categoría)
+  // Crear nueva categoría: 
   const handleCreate = async (e) => {
     e.preventDefault();
     setSuccessMsg("");
@@ -47,8 +47,7 @@ const EditCategory = () => {
       setErrorMsg("El nombre de la nueva categoría no puede estar vacío.");
       return;
     }
-    // Aquí puedes crear un producto dummy o simplemente mostrar la categoría en el frontend
-    // Si tienes una API de categorías, aquí deberías hacer el POST
+    
     setSuccessMsg(
       `¡Categoría "${createCategory}" creada! Ya puedes usarla al crear o editar productos.`
     );

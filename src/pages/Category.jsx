@@ -12,10 +12,10 @@ const Category = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 8;
 
-  // Obtener categorías únicas
+  // Obtengo nuevas categorías:
   const categories = [...new Set(products.map((p) => p.category))];
 
-  // Filtrado por búsqueda y categoría
+  // Filtrado por búsqueda y categoría:
   const filteredProducts = products.filter((prod) => {
     const matchesCategory = selectedCategory
       ? prod.category === selectedCategory
@@ -26,7 +26,7 @@ const Category = () => {
     return matchesCategory && matchesSearch;
   });
 
-  // Paginación
+  // Paginación:
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = filteredProducts.slice(
@@ -81,7 +81,7 @@ const Category = () => {
           Nuestros Productos
         </h1>
 
-        {/* Barra de búsqueda */}
+        {/*La barra de búsqueda */}
         <div
           style={{
             display: "flex",
@@ -128,7 +128,7 @@ const Category = () => {
           </div>
         </div>
 
-        {/* Botones de categoría */}
+        
         <div className="category-buttons">
           <button
             className={`category-button ${!selectedCategory ? "active" : ""}`}
@@ -149,7 +149,7 @@ const Category = () => {
           ))}
         </div>
 
-        {/* Productos filtrados y paginados */}
+        
         <div className="products-grid">
           {currentProducts.map((product) => (
             <ProductCard

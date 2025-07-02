@@ -30,7 +30,7 @@ const Home = () => {
       </Helmet>
       <div className="nature-background" />
 
-      {/* HERO PRINCIPAL */}
+     
       <section
         style={{
           background: "rgba(255,255,255,0.85)",
@@ -65,7 +65,6 @@ const Home = () => {
         </Link>
       </section>
 
-      {/* BENEFICIOS */}
       <section
         style={{
           display: "flex",
@@ -93,7 +92,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* PRODUCTOS DESTACADOS */}
+      
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
         <h2
           className="text-xl font-semibold mb-4 text-center"
@@ -108,7 +107,6 @@ const Home = () => {
         {!loading && !error && <ProductCarousel products={featuredProducts} />}
       </div>
 
-      {/* CATEGORÍAS PRINCIPALES */}
       <div
         className="container"
         style={{ marginTop: 40, marginBottom: 40 }}

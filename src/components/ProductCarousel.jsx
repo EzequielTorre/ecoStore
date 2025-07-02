@@ -2,7 +2,7 @@ import { useState } from "react";
 import ProductCard from "./ProductCard";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-// El componente ProductCarousel muestra un carrusel de productos destacados.
+
 const ProductCarousel = ({ products, onDelete }) => {
   const [current, setCurrent] = useState(0);
 
@@ -19,7 +19,7 @@ const ProductCarousel = ({ products, onDelete }) => {
       </button>
       <div className="carousel-cards">
         {products.map((product, idx) => {
-          // Calcula la posición relativa a la tarjeta central
+          
           const offset = idx - current;
           let className = "carousel-card";
           if (offset === 0) className += " active";
@@ -30,7 +30,7 @@ const ProductCarousel = ({ products, onDelete }) => {
               <ProductCard
                 product={product}
                 onDelete={onDelete}
-                disableActions={offset !== 0} // Solo la central es interactiva
+                disableActions={offset !== 0} 
               />
             </div>
           );

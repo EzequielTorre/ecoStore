@@ -22,7 +22,7 @@ export function AuthProvider({ children }) {
     return () => unsubscribe();
   }, []);
 
-  // Registrar usuario
+  // Registrar usuario:
   const register = (email, password) =>
     createUserWithEmailAndPassword(auth, email, password).then(
       (userCredential) => {
@@ -31,17 +31,17 @@ export function AuthProvider({ children }) {
       }
     );
 
-  // Iniciar sesión
+  // Iniciar sesión:
   const login = (email, password) =>
     signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
       setUser(userCredential.user);
       return userCredential.user;
     });
 
-  // Cerrar sesión
+  // Cerrar sesión:
   const logout = () => signOut(auth).then(() => setUser(null));
 
-  // Iniciar sesión con Google
+  // Iniciar sesión con Google:
   const loginWithGoogle = async () => {
     return signInWithPopup(auth, provider);
   };

@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 import Swal from "sweetalert2";
 
-// El contexto SweetAlertContext proporciona una forma de mostrar alertas de SweetAlert2 en toda la aplicación.
+
 const SweetAlertContext = createContext();
 
 export const SweetAlertProvider = ({ children }) => {

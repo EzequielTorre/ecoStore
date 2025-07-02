@@ -57,7 +57,7 @@ const Navbar = ({ onLogout }) => {
           ecoTienda
         </Link>
 
-        {/* Botón hamburguesa para móvil */}
+        
         <button className="navbar-toggle" onClick={toggleMenu}>
           <FaBars style={{ color: "white", fontSize: "1.5rem" }} />
         </button>
@@ -102,7 +102,7 @@ const Navbar = ({ onLogout }) => {
             <FaEnvelope style={{ marginRight: 6 }} />
             Contacto
           </Link>
-          {/* Enlace solo para el admin */}
+          
           {isAdmin && (
             <div
               style={{
